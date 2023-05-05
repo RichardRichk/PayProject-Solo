@@ -7,19 +7,23 @@ namespace Pagamento_Solo
 {
     public class Debito : Cartao
     {
-        Pagamento pagamento = new Pagamento();
-        public float Saldo {get; private set;} = 0.00f;
+        public float Saldo {get; private set;} = 5000.00f;
         public override void Pagar()
         {
-            if (pagamento.Valor > Saldo)
+            ReceberValor();
+            if (Valor > Saldo)
             {
                 Console.WriteLine($"O valor e maior que seu saldo! Voce nao pode realizar a compra!");
                 Console.WriteLine($"Voltando para menu inicial...");                
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine($"Compra realizada, seu saldo agora e de:");
-                Console.WriteLine($"{Saldo - pagamento.Valor}");                
+                Console.WriteLine($"{Saldo - Valor}");   
+                Console.WriteLine($"Tecle <ENTER> para continuar...");
+                while (Console.ReadKey().Key != ConsoleKey.Enter); 
+                Console.Clear();          
             }
         }
     }

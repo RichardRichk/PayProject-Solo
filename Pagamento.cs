@@ -17,6 +17,7 @@ namespace Pagamento_Solo
         }
 
         public void ReceberValor(){
+            Console.WriteLine($"Qual o valor a ser pago ?");            
             Valor = float.Parse(Console.ReadLine());
         }
 
